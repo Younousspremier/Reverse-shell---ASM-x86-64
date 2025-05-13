@@ -18,8 +18,16 @@ Ce projet consiste en l'implémentation d'un reverse shell en assembleur x86-64.
 - **m2elf** : Pour écrire directement du code machine et le convertir en exécutable valide
 
 ## Compilation et exécution
+Machine victime
 ```bash
-nasm -f elf32 reverse_shell.s && ld -m elf_i386 reverse_shell.o
+./a.out
+```
+Machine attaquante :
+```bash
+nc -lvp 4444
+```
+Machine victime
+```bash
 ./a.out
 ```
 
