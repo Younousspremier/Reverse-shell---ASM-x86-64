@@ -37,6 +37,7 @@ Ce programme est développé dans un cadre purement académique pour comprendre 
 ## Auteurs
 - MEDIOUNA Younouss
 - AZOUZ Idir
+- MAZZARi Mehdi
 
 ## Licence
 Ce projet est réalisé dans le cadre d'un cours à l'ESGI et est soumis aux règles de l'établissement.
