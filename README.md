@@ -10,7 +10,7 @@ Ce projet consiste en l'implémentation d'un reverse shell en assembleur x86-64.
 - Le code est légèrement optimisé (sans instructions inutiles)
 - Des tentatives de reconnexion (toutes les 5-10 secondes) sont implémentées au cas où la machine attaquante ne soit pas en écoute
 
-## Outils utilisés
+## ⚠️ Outils utilisés (à installer)
 - **nasm** : Netwide Assembler – `nasm -f elf32` (pour l'assembleur x86)
 - **ld** : Linker (le même que celui utilisé par GCC) – `ld -m elf_i386` (pour l'assembleur x86)
 - **objdump** : Désassembleur – `objdump -M intel -d`
