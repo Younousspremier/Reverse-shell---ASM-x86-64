@@ -20,7 +20,7 @@ Ce projet consiste en l'implémentation d'un reverse shell en assembleur x86-64.
 ## Compilation et exécution
 Machine victime
 ```bash
-./a.out
+nasm -f elf32 reverse_shell.s && ld -m elf_i386 reverse_shell.o
 ```
 Machine attaquante :
 ```bash
