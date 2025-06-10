@@ -17,9 +17,6 @@ section .text
     global _start
 
 _start:
-    ; Début du programme
-    jmp socket_create
-
 socket_create:
     ; Étape 1 : Créer un socket
     mov eax, 102        ; syscall socketcall
