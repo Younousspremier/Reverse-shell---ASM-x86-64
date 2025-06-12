@@ -8,7 +8,6 @@ section .data
 
 section .bss
     sockaddr resb 16          ; Structure pour stocker l'adresse du serveur
-    timespec resb 8           ; Structure pour nanosleep (deux dwords)
 
 section .text
     global _start
